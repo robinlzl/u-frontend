@@ -2,7 +2,7 @@ body {
     margin : 0;
     padding : 0;
     display : grid;
-    grid-template-rows: 60px auto auto;
+    grid-template-rows: 1fr 2fr 1fr;
     grid-template-columns: repeat(7, 1fr);
 
 }
