@@ -2,16 +2,40 @@ body {
     margin : 0;
     padding : 0;
     display : grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 1fr auto auto;
     grid-template-columns: repeat(7, 1fr);
 
 }
+
 header h1 {
     border : 2px solid fuchsia;
-    margin : 0;
-    position : relative;
-    left : 30px;
+    margin : 0px;
+    margin-left : 30px;
+    height : inherit;
+    padding : 0;
 }
+
+header h1 span {
+    color: aqua;
+}
+
+header nav ul li{
+    list-style : none;
+    display : inline-block;
+}
+header nav ul li a:hover {
+    background : cornflowerblue;
+    transition : 0.5s;
+}
+
+
+header nav ul li a {
+    padding : 20px;
+    margin : 20px;
+    font-size : 1.1em;
+    text-decoration: none;
+}
+
 header {
     grid-column-start: 1;
     grid-column-end: -1;
@@ -22,6 +46,15 @@ header {
     flex-direction : row;
     justify-content : space-between;
     background: cadetblue;
+}
+
+header .navigator {
+    display : none;
+}
+
+header * {
+
+    color : white;
 }
 
 .content {
@@ -44,15 +77,4 @@ footer {
     grid-row-start: 3;
     grid-row-end: 4;
     border: 1px solid blue;
-}
-
-header > img {
-    opacity : 0.5;
-    width : 100%;
-    height : auto;
-}
-nav ul li {
-
-    display : inline-block;
-    color : red;
 }
