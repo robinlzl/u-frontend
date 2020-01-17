@@ -1,0 +1,93 @@
+header h1 {
+    border : 2px solid fuchsia;
+    margin: 0px 0px 0px 30px;
+    padding : 0;
+}
+
+header h1 span {
+    color: aqua;
+}
+
+header nav ul {
+    display : flex;
+    height: 50px;
+    align-items: center;
+    list-style: none;
+    margin : 0;
+    padding : 0;
+}
+
+header nav ul li {
+    width : 100%;
+    margin : 0;
+    padding : 0;
+    position : relative;
+
+}
+
+header nav ul li a:hover {
+    background : cornflowerblue;
+    transition : 0.5s;
+}
+
+header nav ul li a {
+    padding : 15px;
+    margin : 20px;
+    font-size : 1.1em;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+header nav ul li ul {
+    display : none;
+    padding : 0;
+    margin : 0;
+    position : absolute;
+    top : 35px;
+    left : 10px;
+    border: 1px solid red;
+    background: lightgrey;
+}
+
+header nav ul li:hover ul  {
+    display : block;
+}
+
+header nav ul li ul li:hover {
+    background : cornflowerblue;
+    transition : 0.5s;
+}
+
+header nav ul li ul li a {
+    padding : 0;
+    margin : 20px;
+    color : black;
+    width : 100%;
+}
+
+header {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid red;
+    display : flex;
+    align-items: center;
+    justify-content: space-between;
+    background: cadetblue;
+}
+
+header .navigator {
+    display : none;
+}
+
+header * {
+    color : white;
+}
+
+header nav ul li .dropdown {
+    display : inline;
+    margin : 10px;
+    padding : 0;
+
+}
