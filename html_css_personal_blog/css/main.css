@@ -10,7 +10,9 @@ body {
     display : grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
     grid-template-rows: 50px auto auto;
-
+    background-color: beige;
+    grid-column-gap : 15px;
+    grid-row-gap  : 30px;
 }
 
 

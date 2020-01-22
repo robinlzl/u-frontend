@@ -5,14 +5,40 @@
     grid-row-end: 3;
     border : 1px solid black;
     display : grid;
-    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-columns: 2fr 2fr;
     grid-template-rows: auto;
     grid-auto-flow: row;
+    grid-column-gap : 15px;
+    grid-row-gap  : 20px;
 }
 
 .content h1 {
     grid-column-start : 1;
-    grid-column-end : 2;
+    grid-column-end : span 2;
     grid-row-start : 1;
     grid-row-end : 2;
+    padding : 0;
+    margin-left : 30px;
+    margin-bottom: 20px;
+
+}
+
+
+.content .post .post-image {
+    object-fit : cover;
+    max-height :270px;
+    width : 100%;
+    justify-content: center;
+}
+
+.content .post .post-preview h2 a {
+    text-decoration: none;
+}
+.btn {
+    padding : .5rem 1rem;
+    background: #006669;
+    color : white;
+    border : 1px solid transparent;
+    border-radius: .25rem;
+    text-decoration: none;
 }
