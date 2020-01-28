@@ -3,6 +3,46 @@
     grid-column-end: -1;
     grid-row-start: 2;
     grid-row-end: 3;
-    border : 1px solid yellow;
+    border : 10px solid green;
 }
 
+.sidebar .section {
+    background-color: white;
+    padding : 20px;
+    border-radius: 5px;
+    margin-bottom : 20px;
+}
+
+
+.sidebar .section.search {
+    margin-top : 90px;
+}
+
+.text-input {
+
+    padding : .7rem 1rem;
+    display : block;
+    width : 90%;
+    border-redius: 20px;
+    font-size : 1.2em;
+
+}
+
+.sidebar .section.topics ul {
+    margin : 0;
+    padding : 0;
+    list-style : none;
+}
+
+.sidebar .section.topics ul li a {
+    display : block;
+    padding : 15px 0 15px 0;
+    border-bottom : 1px solid #e0e0e0;
+    text-decoration: none;
+    transition : 1s;
+}
+
+.sidebar .section.topics ul li a:hover {
+    padding-left : 10px;
+    transition : 1s;
+}
