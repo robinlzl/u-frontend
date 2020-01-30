@@ -29,12 +29,67 @@ footer .footer-content {
 
 footer .footer-content .footer-section {
     flex-direction : row;
-    border : 1px solid white;
 
 }
+
 footer .footer-content .about {
-    width : 10px;
+    width: 50%;
+    margin-left : 30px;
 }
+
 footer .footer-content .links {
+    margin-top : 10px;
+    width : 50%;
+}
+
+footer .footer-content .about .socials a{
+    color : white;
+    text-decoration: none;
+}
+
+footer .footer-content .footer-section h1,
+footer .footer-content .footer-section h2 {
+    color : white;
+}
+
+footer .footer-content .footer-section h1 span {
+    color : aqua;
+}
+
+footer .footer-content .footer-section p {
+    margin-bottom : 20px;
+}
+footer .footer-content .about .contact i{
+    display : block;
+    font-size : 1.1em;
+    margin-bottom : 20px;
+}
+
+footer .footer-content .about .socials a i{
+
+    border : 1px solid grey;
+    width : 50px;
+    height : 50px;
+    padding-top : 7px;
+    margin-right : 5px;
+    font-size : 2.3em;
+    display : inline-block;
+    text-align : center;
+    border-radius : 5px;
+}
+
+footer .footer-content .links ul a {
+
+    color : white;
+    display : block;
+    text-decoration: none;
+    margin-bottom : 10px;
+    font-size : 1.2em;
+}
+
+footer .footer-content .links ul a:hover {
+    color : deepskyblue;
+    margin-left : 10px;
+    transition : all .3s;
 
 }

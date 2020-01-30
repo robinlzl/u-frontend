@@ -2,7 +2,7 @@
 @import url("footer.css");
 @import url("content.css");
 @import url("sidebar.css");
-
+@import url("single_page.css");
 
 body {
     margin : 0;
