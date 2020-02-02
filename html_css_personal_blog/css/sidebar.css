@@ -22,7 +22,7 @@
     padding : .7rem 1rem;
     display : block;
     width : 90%;
-    border-redius: 20px;
+    border-radius: 20px;
     font-size : 1.2em;
 
 }
@@ -44,4 +44,16 @@
 .sidebar .section.topics ul li a:hover {
     padding-left : 10px;
     transition : 1s;
+}
+
+@media (max-width : 920px) {
+
+    .sidebar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        margin : 10px;
+    }
+
 }

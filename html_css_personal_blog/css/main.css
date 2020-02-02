@@ -9,10 +9,25 @@ body {
     padding : 0;
     display : grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
-    grid-template-rows: 50px auto auto;
+    grid-template-rows: auto auto auto;
     background-color: beige;
     grid-column-gap : 15px;
     grid-row-gap  : 30px;
+    min-width : 500px;
+}
+
+@media (max-width : 920px) {
+
+    body {
+        margin : 0;
+        padding : 0;
+        display : grid;
+        grid-template-columns: 2fr;
+        grid-template-rows: auto auto auto auto;
+        grid-auto-flow: row;
+        background-color: beige;
+
+    }
 }
 
 

@@ -93,3 +93,18 @@ footer .footer-content .links ul a:hover {
     transition : all .3s;
 
 }
+
+@media (max-width : 920px) {
+
+    footer {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 4;
+        grid-row-end: -1;
+        border: 1px solid blue;
+        background : #303036;
+        color : #d3d3d3;
+        height : 400px;
+        position : relative;
+    }
+}
