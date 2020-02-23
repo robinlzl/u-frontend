@@ -64,14 +64,23 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+.navbar__menu {
+    background-color: #07090a;
+}
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    color : red;
+
 }
 
 .navbar__menu li {
     display: inline-block;
+    margin : 10px;
+}
+.navbar__menu li:hover {
+    cursor : pointer;
 }
 
 .navbar__menu .menu__link {
