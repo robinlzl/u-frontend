@@ -36,6 +36,13 @@ const getSectionList = function() {
 
 }
 
+const _offset = function(el) {
+
+    const rect = el.getBoundingClientRect()
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    return scrollTop + rect.top
+}
+
 const _collapseHelper = function(element, collapse, expand) {
 
     if (!element.classList.contains(collapse) &&
@@ -82,8 +89,8 @@ const buildNavMenu = function() {
         liElement.addEventListener('click', evt => {
             const rect = sectionList[i].getBoundingClientRect()
             window.scrollTo(rect.left + window.scrollX, rect.top + window.scrollY)
-            sectionList[i].classList.toggle("your-active-class")
-            defaultActiveSection.classList.toggle("your-active-class")
+            sectionList[i].classList.add("your-active-class")
+            defaultActiveSection.classList.remove("your-active-class")
             defaultActiveSection = sectionList[i]
         })
     }
@@ -99,6 +106,16 @@ const configReturnToTopButton = function() {
         } else {
             returnToTopButton.style.display = 'none'
         }
+        // for (let i = 0; i < sectionList.length; i++) {
+        //
+        //     if (window.scrollY > _offset(sectionList[i])) {
+        //         console.log("!!!")
+        //         sectionList[i].classList.add("your-active-class")
+        //         defaultActiveSection.classList.remove("your-active-class")
+        //         defaultActiveSection = sectionList[i]
+        //         break
+        //     }
+        // }
     })
     returnToTopButton.addEventListener("click", evt => {
         window.scrollTo(0,0)
@@ -117,6 +134,8 @@ const hideNavWhenNotScroll = function() {
         }, 5000)
     })
 }
+
+
 
 /**
  * End Helper Functions
