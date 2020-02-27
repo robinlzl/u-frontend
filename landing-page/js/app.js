@@ -18,7 +18,7 @@
  * 
 */
 let defaultActiveSection = null
-let isScrolling;
+let showNav;
 let sectionList = []
 displayBlockOrNone = ['display-none', "display-block"]
 SectionCollapseOrNot = ['collapse-section', 'expand-section']
@@ -27,14 +27,7 @@ SectionCollapseOrNot = ['collapse-section', 'expand-section']
  * Start Helper Functions
  * 
 */
-const getSectionList = function() {
 
-    const sections = document.getElementsByTagName('section')
-    for (let i = 0; i < sections.length; i++) {
-        sectionList.push(sections[i])
-    }
-
-}
 
 const _offset = function(el) {
 
@@ -42,6 +35,17 @@ const _offset = function(el) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop
     return scrollTop + rect.top
 }
+
+const _setDefaultActiveSection = function(section) {
+    if (defaultActiveSection === section) {
+        return
+    }
+    section.classList.add("your-active-class")
+    defaultActiveSection.classList.remove("your-active-class")
+    defaultActiveSection = section
+
+}
+
 
 const _collapseHelper = function(element, collapse, expand) {
 
@@ -60,6 +64,14 @@ const _collapseHelper = function(element, collapse, expand) {
     }
 }
 
+const getSectionList = function() {
+
+    const sections = document.getElementsByTagName('section')
+    for (let i = 0; i < sections.length; i++) {
+        sectionList.push(sections[i])
+    }
+
+}
 const makeSectionCollapsable = function() {
 
     for (let i = 0; i < sectionList.length; i++) {
@@ -76,26 +88,7 @@ const makeSectionCollapsable = function() {
 
 }
 
-const buildNavMenu = function() {
 
-    const ulElement = document.getElementById('navbar__list')
-    if (sectionList.length > 0) {
-        defaultActiveSection = sectionList[0]
-    }
-    for (let i = 0; i < sectionList.length; i++) {
-        const liElement = document.createElement('li')
-        liElement.innerHTML = sectionList[i].getAttribute('data-nav')
-        ulElement.appendChild(liElement)
-        liElement.addEventListener('click', evt => {
-            const rect = sectionList[i].getBoundingClientRect()
-            window.scrollTo(rect.left + window.scrollX, rect.top + window.scrollY)
-            sectionList[i].classList.add("your-active-class")
-            defaultActiveSection.classList.remove("your-active-class")
-            defaultActiveSection = sectionList[i]
-        })
-    }
-
-}
 
 const configReturnToTopButton = function() {
 
@@ -106,32 +99,33 @@ const configReturnToTopButton = function() {
         } else {
             returnToTopButton.style.display = 'none'
         }
-        // for (let i = 0; i < sectionList.length; i++) {
-        //
-        //     if (window.scrollY > _offset(sectionList[i])) {
-        //         console.log("!!!")
-        //         sectionList[i].classList.add("your-active-class")
-        //         defaultActiveSection.classList.remove("your-active-class")
-        //         defaultActiveSection = sectionList[i]
-        //         break
-        //     }
-        // }
+
     })
+
     returnToTopButton.addEventListener("click", evt => {
         window.scrollTo(0,0)
+        if (sectionList.length > 0) {
+
+            _setDefaultActiveSection(sectionList[0])
+        }
+
     })
 }
 
 const hideNavWhenNotScroll = function() {
+
     window.addEventListener('scroll', evt => {
 
-        window.clearTimeout(isScrolling)
+        window.clearTimeout(showNav)
         const navMenu = document.querySelector('nav')
         navMenu.style.display = 'block'
-        isScrolling = setTimeout(() => {
+        showNav = setTimeout(() => {
             navMenu.style.display = 'none'
             console.log('scroll has stopped')
+
         }, 5000)
+
+
     })
 }
 
@@ -145,7 +139,24 @@ const hideNavWhenNotScroll = function() {
 
 // build the nav
 
+const buildNavMenu = function() {
 
+    const ulElement = document.getElementById('navbar__list')
+    if (sectionList.length > 0) {
+        defaultActiveSection = sectionList[0]
+    }
+    for (let i = 0; i < sectionList.length; i++) {
+        const liElement = document.createElement('li')
+        liElement.innerHTML = sectionList[i].getAttribute('data-nav')
+        ulElement.appendChild(liElement)
+        liElement.addEventListener('click', evt => {
+            const rect = sectionList[i].getBoundingClientRect()
+            window.scrollTo(rect.left + window.scrollX, rect.top + window.scrollY)
+            _setDefaultActiveSection(sectionList[i])
+        })
+    }
+
+}
 
 // Add class 'active' to section when near top of viewport
 
@@ -166,6 +177,15 @@ configReturnToTopButton()
 hideNavWhenNotScroll()
 makeSectionCollapsable()
 
+// for (let i = sectionList.length - 1; i >= 0; i--) {
+//
+//     if ((window.scrollY + window.scrollY + window.innerHeight) / 2 > _offset(sectionList[i]) - 600) {
+//
+//         _setDefaultActiveSection(sectionList[i])
+//         console.log(`${(window.scrollY + window.scrollY + window.innerHeight) / 2} ${i} ${_offset(sectionList[i])} ${defaultActiveSection}`)
+//         break
+//     }
+// }
 
 // Scroll to section on link click
 
