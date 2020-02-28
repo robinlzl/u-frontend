@@ -287,3 +287,10 @@ section.your-active-class .landing__container::after {
 .display-block {
     display : block;
 }
+/*#section_control {*/
+/*    text-align: left;*/
+/*    display : inline-block;*/
+/*}*/
+/*#section_control li {*/
+/*    display : inline-block;*/
+/*}*/

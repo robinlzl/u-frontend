@@ -19,6 +19,7 @@
 */
 let defaultActiveSection = null
 let showNav;
+let showSection;
 let sectionList = []
 displayBlockOrNone = ['display-none', "display-block"]
 SectionCollapseOrNot = ['collapse-section', 'expand-section']
@@ -72,6 +73,7 @@ const getSectionList = function() {
     }
 
 }
+
 const makeSectionCollapsable = function() {
 
     for (let i = 0; i < sectionList.length; i++) {
@@ -123,7 +125,7 @@ const hideNavWhenNotScroll = function() {
             navMenu.style.display = 'none'
             console.log('scroll has stopped')
 
-        }, 5000)
+        }, 4000)
 
 
     })
@@ -158,16 +160,52 @@ const buildNavMenu = function() {
 
 }
 
+const showNavWhenMoveToTop = function() {
+    let showNavMenu = true
+    document.addEventListener('mousemove', e => {
+        const navMenu = document.querySelector('nav')
+        if (e.clientY <= 20) {
+            navMenu.style.display = 'block'
+            showNavMenu = true
+        } else {
+            if (showNavMenu) {
+                navMenu.style.display = 'None'
+                showNavMenu = false
+            }
+        }
+    })
+}
 // Add class 'active' to section when near top of viewport
 
+const addActiveToSection = function() {
 
+    window.addEventListener('scroll', evt => {
+
+        window.clearTimeout(showSection)
+
+        showSection = setTimeout(() => {
+            for (let i = sectionList.length - 1; i >= 0; i--) {
+
+                if ((window.scrollY + window.scrollY + window.innerHeight) / 2 > _offset(sectionList[i])) {
+
+                    _setDefaultActiveSection(sectionList[i])
+                    break
+                }
+            }
+
+            console.log('active section set')
+
+        }, 50)
+
+    })
+}
 // Scroll to anchor ID using scrollTO event
 
 
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
 // Build menu
@@ -176,16 +214,10 @@ buildNavMenu()
 configReturnToTopButton()
 hideNavWhenNotScroll()
 makeSectionCollapsable()
+addActiveToSection()
+showNavWhenMoveToTop()
 
-// for (let i = sectionList.length - 1; i >= 0; i--) {
-//
-//     if ((window.scrollY + window.scrollY + window.innerHeight) / 2 > _offset(sectionList[i]) - 600) {
-//
-//         _setDefaultActiveSection(sectionList[i])
-//         console.log(`${(window.scrollY + window.scrollY + window.innerHeight) / 2} ${i} ${_offset(sectionList[i])} ${defaultActiveSection}`)
-//         break
-//     }
-// }
+
 
 // Scroll to section on link click
 
