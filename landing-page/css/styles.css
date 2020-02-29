@@ -64,17 +64,21 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
-.navbar__menu ul {
+.navbar__menu #navbar__list {
+    display : inline-block;
     padding-left: 0;
     margin: 0;
     text-align: right;
     color : red;
-
+    float : right;
+    font-weight : bold;
+    font-size : 1.1em;
 }
 
 .navbar__menu li {
     display: inline-block;
     margin : 10px;
+
 }
 .navbar__menu li:hover {
     cursor : pointer;
@@ -85,7 +89,7 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+
 }
 
 .navbar__menu .menu__link:hover {
@@ -101,6 +105,7 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+    background-color: #000;
 }
 
 /* Footer Styles */
@@ -287,10 +292,26 @@ section.your-active-class .landing__container::after {
 .display-block {
     display : block;
 }
-/*#section_control {*/
-/*    text-align: left;*/
-/*    display : inline-block;*/
-/*}*/
-/*#section_control li {*/
-/*    display : inline-block;*/
-/*}*/
+
+.navbar__menu #section_control {
+    padding-left: 0;
+    margin: 0;
+    display : inline-block;
+    color : red;
+    font-weight : bold;
+    font-size : 1.1em;
+}
+
+.navbar__menu #section_control li:hover {
+
+    color : #00CCCC;
+    cursor : pointer;
+    background : cornflowerblue;
+}
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+
