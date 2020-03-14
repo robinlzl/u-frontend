@@ -1,5 +1,10 @@
 # IDEs
 .project
 .idea
+.json
 # study
 /study
+
+#node_module
+/node_modules
+
